@@ -1,0 +1,22 @@
+package pl.pawel.controllers;
+
+import org.junit.Before;
+import pl.pawel.service.GreetingServiceImpl;
+
+import static org.junit.Assert.assertEquals;
+
+/**
+ * Created by Pawel on 2017-10-02.
+ */
+public class ConstructorInjectedControllerTest {
+	private ConstructorInjectedController constructorInjectedController;
+
+	@Before
+	public void setUp() throws Exception {
+		this.constructorInjectedController = new ConstructorInjectedController(new GreetingServiceImpl());
+	}
+
+	public void testGreeting() throws Exception {
+		assertEquals(GreetingServiceImpl.GREETING, constructorInjectedController.sayHello());
+	}
+}
